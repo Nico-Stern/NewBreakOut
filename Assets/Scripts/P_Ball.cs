@@ -1,43 +1,59 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.TextCore;
 
 public class P_Ball : MonoBehaviour
 {
     [SerializeField] private GameObject player;
-    private int BallIsActive;
-    private Vector3 BallPosition;
-    private Vector2 BallInitalForce;
-    private float OriginY;
+    private int ballIsActive;
+    private Vector3 ballPosition;
+    private Vector2 ballPosV2;
+    private Vector2 ballInitalForce;
+    private Vector2 playerOffset;
+    private Vector2 playerSize;
+    private Vector2 distance;
+    private BoxCollider2D p_collider;
+    //private float OriginY;
     private Rigidbody2D rb;
     
     void Start()
     {
-        BallIsActive = 0;
-        BallPosition = transform.position;
-        OriginY = transform.position.y;
-        BallInitalForce = new Vector2(100f, 300f);
+        p_collider = player.GetComponent<BoxCollider2D>();
+        p_collider.offset = playerOffset;
+        p_collider.size = playerSize;
+        ballIsActive = 0;
+        ballPosition = transform.position;
+        //OriginY = transform.position.y;
+        playerSize = new Vector2(100f, 300f);
         rb = GetComponent<Rigidbody2D>();
 
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         if (Input.GetButtonDown("Jump"))
         {
-            if (BallIsActive == 0)
+            if (ballIsActive == 0)
             {
-                rb.AddForce(BallInitalForce);
-                BallIsActive = 1;
+                rb.AddForce(ballInitalForce);
+                ballIsActive = 1;
             }
         }
 
-        if (BallIsActive == 0 && player != null)
+        if (ballIsActive == 0 && player != null)
         {
-            BallPosition.x = player.transform.position.x;
-            transform.position = BallPosition;
+            ballPosition.x = player.transform.position.x;
+            transform.position = ballPosition;
+            ballPosV2 = new Vector2(transform.position.x, transform.position.y);
         }
     }
+
+    void HitPlayer()
+    {
+        //Vector2.Distance(ballPosV2, playerOffset) = distance;
+    }
+    
 }
