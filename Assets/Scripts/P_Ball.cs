@@ -14,6 +14,7 @@ public class P_Ball : MonoBehaviour
     [SerializeField] private float minY = -5.5f;
     [SerializeField] private float maxVelocity = 15f;
     private Rigidbody2D rb;
+    private CircleCollider2D bc;
     private int score;
     private int lives = 3;
     public Text scoreTxt;
@@ -27,6 +28,8 @@ public class P_Ball : MonoBehaviour
     {
         Time.timeScale = 1;
         rb = GetComponent<Rigidbody2D>();
+        bc= GetComponent<CircleCollider2D>();
+        
         //rb.velocity = Vector2.down * 10f;
         BallReset = new Vector3(0.0f, -1f, 0.0f);
         ballIsActive = false;
@@ -48,6 +51,7 @@ public class P_Ball : MonoBehaviour
                     ballIsActive = false;
                     transform.position = BallReset;
                     rb.velocity = Vector2.zero;
+                    bc.isTrigger = true;
                     //rb.velocity = Vector2.down * 10f;
                     LessLives();
                     livesImage[lives].SetActive(false);
@@ -69,6 +73,7 @@ public class P_Ball : MonoBehaviour
                 rb.velocity = Vector2.down * 10f;
             }
             ballIsActive = true;
+            bc.isTrigger = false;
         }
     }
 
