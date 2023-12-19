@@ -303,9 +303,21 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 64441918}
     m_Modifications:
+    - target: {fileID: 2102213483003461782, guid: 0f29ca10ffe45c844a848dfac6f85f96, type: 3}
+      propertyPath: m_SortingOrder
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2147075446778971166, guid: 0f29ca10ffe45c844a848dfac6f85f96, type: 3}
       propertyPath: m_Name
       value: Walls
+      objectReference: {fileID: 0}
+    - target: {fileID: 2704992144980957240, guid: 0f29ca10ffe45c844a848dfac6f85f96, type: 3}
+      propertyPath: m_SortingOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6124421782490627925, guid: 0f29ca10ffe45c844a848dfac6f85f96, type: 3}
+      propertyPath: m_SortingOrder
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7303834754327590964, guid: 0f29ca10ffe45c844a848dfac6f85f96, type: 3}
       propertyPath: m_LocalPosition.z
@@ -428,7 +440,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2708012668196920760, guid: b1bae93ab5b95a444bc78a4f9f2a5d62, type: 3}
       propertyPath: BricksX
-      value: 8
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 2708012668196920760, guid: b1bae93ab5b95a444bc78a4f9f2a5d62, type: 3}
       propertyPath: BricksY.Array.size

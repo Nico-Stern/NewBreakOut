@@ -8,9 +8,11 @@ using Random = UnityEngine.Random;
 public class N_Brick : MonoBehaviour
 {
     public Brick WhatBrick;
-    [SerializeField] Color[] BrickColor;
+    [SerializeField] Sprite[] BrickColor;
     public int Reihe;
     public int life=1;
+    [SerializeField] GameObject PowerUp;
+
     void Start()
     {
         
@@ -26,14 +28,14 @@ public class N_Brick : MonoBehaviour
         switch (WhatBrick)
         {
             case Brick.Normal:
-                GetComponent<SpriteRenderer>().color = BrickColor[0];
+                GetComponent<SpriteRenderer>().sprite = BrickColor[0];
                 break;
             case Brick.MoreHit:
-                GetComponent<SpriteRenderer>().color = BrickColor[1];
+                GetComponent<SpriteRenderer>().sprite = BrickColor[1];
                 life = 3;
                 break;
             case Brick.PowerUp:
-                GetComponent<SpriteRenderer>().color = BrickColor[2];
+                GetComponent<SpriteRenderer>().sprite = BrickColor[2];
                 break;
         }
     }
@@ -55,11 +57,6 @@ public class N_Brick : MonoBehaviour
         }
     }
 
-    private void OnCollisionEnter(Collision collision)
-    {
-        
-    }
-
     private void OnDestroy()
     {
         GameObject Spawner = GameObject.FindGameObjectWithTag("Spawner");
@@ -75,6 +72,10 @@ public class N_Brick : MonoBehaviour
         }
         print("try");
         Spawner.GetComponent<N_BrickSpawner>().CheckLastBricks();
+        if(WhatBrick==Brick.PowerUp)
+        {
+            Instantiate(PowerUp, transform.position, Quaternion.identity);
+        }
     }
 
     public void SetBrickIntoTrigger(bool a)

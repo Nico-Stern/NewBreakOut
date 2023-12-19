@@ -84,7 +84,10 @@ public class P_Ball : MonoBehaviour
                 col.gameObject.GetComponent<N_Brick>().life--;
             }
         }
+    }
 
+    private void OnTriggerEnter2D(Collider2D col)
+    {
         if (col.gameObject.CompareTag("PowerUp"))
         {
             col.gameObject.GetComponent<P_PowerUps>().UsePowerUp();

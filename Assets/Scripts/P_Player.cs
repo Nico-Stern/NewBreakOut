@@ -7,8 +7,12 @@ public class P_Player : MonoBehaviour
 {
     [SerializeField] private float playerVelocity = 10f;
     private float playerMov;    
-    private float boundary = 8f;
-    
+    private float boundary = 5f;
+
+    private void Start()
+    {
+        boundary -= transform.localScale.x / 2;
+    }
     void Update()
     {
         playerMov = Input.GetAxis("Horizontal");
