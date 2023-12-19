@@ -73,9 +73,16 @@ public class P_Ball : MonoBehaviour
     {
         if (col.gameObject.CompareTag("Brick"))
         {
-            Destroy(col.gameObject);
-            score += 10;
-            scoreTxt.text = score.ToString("00000");
+            if (col.gameObject.GetComponent<N_Brick>().life <= 1)
+            {
+                Destroy(col.gameObject);
+                score += 10;
+                scoreTxt.text = score.ToString("00000");
+            }
+            else
+            {
+                col.gameObject.GetComponent<N_Brick>().life--;
+            }
         }
 
         if (col.gameObject.CompareTag("PowerUp"))
