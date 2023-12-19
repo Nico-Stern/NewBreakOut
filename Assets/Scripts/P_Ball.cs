@@ -42,8 +42,10 @@ public class P_Ball : MonoBehaviour
                 }
                 else
                 {
+                    ballIsActive = false;
                     transform.position = BallReset;
-                    rb.velocity = Vector2.down * 10f;
+                    rb.velocity = Vector2.zero;
+                    //rb.velocity = Vector2.down * 10f;
                     lives--;
                     livesImage[lives].SetActive(false);
                 }
@@ -71,9 +73,16 @@ public class P_Ball : MonoBehaviour
     {
         if (col.gameObject.CompareTag("Brick"))
         {
-            Destroy(col.gameObject);
-            score += 10;
-            scoreTxt.text = score.ToString("00000");
+            if (col.gameObject.GetComponent<N_Brick>().life <= 1)
+            {
+                Destroy(col.gameObject);
+                score += 10;
+                scoreTxt.text = score.ToString("00000");
+            }
+            else
+            {
+                col.gameObject.GetComponent<N_Brick>().life--;
+            }
         }
 
         if (col.gameObject.CompareTag("PowerUp"))
@@ -106,5 +115,6 @@ public class P_Ball : MonoBehaviour
     public void lava()
     {
         Debug.Log("lava");
+        
     }
 }

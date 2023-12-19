@@ -10,6 +10,7 @@ public class N_Brick : MonoBehaviour
     public Brick WhatBrick;
     [SerializeField] Color[] BrickColor;
     public int Reihe;
+    public int life=1;
     void Start()
     {
         
@@ -29,6 +30,7 @@ public class N_Brick : MonoBehaviour
                 break;
             case Brick.MoreHit:
                 GetComponent<SpriteRenderer>().color = BrickColor[1];
+                life = 3;
                 break;
             case Brick.PowerUp:
                 GetComponent<SpriteRenderer>().color = BrickColor[2];
@@ -51,6 +53,11 @@ public class N_Brick : MonoBehaviour
         {
             //Multiball
         }
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        
     }
 
     private void OnDestroy()
