@@ -300,7 +300,7 @@ RectTransform:
   m_GameObject: {fileID: 582865049}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1.5, y: 1.5, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1089801226}
@@ -330,7 +330,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 21300000, guid: 1999442142faf9b4e9f5fb49d2cc4cee, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -366,7 +366,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6679448914342339660, guid: f3c244040cea1d54c93f50de6eba0e28, type: 3}
       propertyPath: playerVelocity
-      value: 5
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 8324097839342581441, guid: f3c244040cea1d54c93f50de6eba0e28, type: 3}
       propertyPath: m_LocalPosition.x
@@ -440,7 +440,7 @@ RectTransform:
   m_GameObject: {fileID: 917821097}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1.5, y: 1.5, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1089801226}
@@ -470,7 +470,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 21300000, guid: 499059c7db1d231429df0cf1f021a4a8, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -502,7 +502,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2708012668196920760, guid: b1bae93ab5b95a444bc78a4f9f2a5d62, type: 3}
       propertyPath: BricksY.Array.size
-      value: 10
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 2708012668196920760, guid: b1bae93ab5b95a444bc78a4f9f2a5d62, type: 3}
+      propertyPath: BricksY.Array.data[6]
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2708012668196920760, guid: b1bae93ab5b95a444bc78a4f9f2a5d62, type: 3}
+      propertyPath: BricksY.Array.data[7]
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2708012668196920760, guid: b1bae93ab5b95a444bc78a4f9f2a5d62, type: 3}
+      propertyPath: BricksY.Array.data[8]
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4414560287147347945, guid: b1bae93ab5b95a444bc78a4f9f2a5d62, type: 3}
       propertyPath: m_LocalPosition.x
@@ -587,8 +599,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -56.039978, y: -22.005005}
-  m_SizeDelta: {x: 112.09, y: 44.01}
+  m_AnchoredPosition: {x: -86.31, y: -34.820007}
+  m_SizeDelta: {x: 172.63, y: 69.62}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1014745639
 MonoBehaviour:
@@ -612,11 +624,11 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 40
+    m_FontSize: 60
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 4
-    m_MaxSize: 50
+    m_MaxSize: 69
     m_Alignment: 6
     m_AlignByGeometry: 0
     m_RichText: 1
@@ -668,7 +680,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 55, y: -55}
+  m_AnchoredPosition: {x: 66, y: -67}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1089801227
@@ -692,7 +704,7 @@ MonoBehaviour:
   m_StartCorner: 0
   m_StartAxis: 0
   m_CellSize: {x: 40, y: 40}
-  m_Spacing: {x: 5, y: 0}
+  m_Spacing: {x: 28, y: 0}
   m_Constraint: 2
   m_ConstraintCount: 1
 --- !u!1001 &1113743166
@@ -705,11 +717,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 140871103720059764, guid: 8f3358b9ca82ce74783da40fd0648732, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.9468602
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 140871103720059764, guid: 8f3358b9ca82ce74783da40fd0648732, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.8697673
+      value: -1
       objectReference: {fileID: 0}
     - target: {fileID: 140871103720059764, guid: 8f3358b9ca82ce74783da40fd0648732, type: 3}
       propertyPath: m_LocalPosition.z
@@ -764,6 +776,10 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2664718802024911848, guid: 8f3358b9ca82ce74783da40fd0648732, type: 3}
+      propertyPath: maxVelocity
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 2664718802024911848, guid: 8f3358b9ca82ce74783da40fd0648732, type: 3}
       propertyPath: livesImage.Array.size
       value: 3
       objectReference: {fileID: 0}
@@ -815,7 +831,7 @@ RectTransform:
   m_GameObject: {fileID: 1306035804}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1.5, y: 1.5, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1089801226}
@@ -845,7 +861,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 21300000, guid: 0d1d11351ccb9184085dd2a7d69a0fc3, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1

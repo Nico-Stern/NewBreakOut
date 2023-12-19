@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using Unity.Mathematics;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.TextCore;
 using UnityEngine.UI;
 
@@ -22,6 +23,7 @@ public class P_Ball : MonoBehaviour
 
     private void Start()
     {
+        Time.timeScale = 1;
         rb = GetComponent<Rigidbody2D>();
         //rb.velocity = Vector2.down * 10f;
         BallReset = new Vector3(0.0f, -1f, 0.0f);
@@ -86,6 +88,7 @@ public class P_Ball : MonoBehaviour
     void GameOver()
     {
         Time.timeScale = 0;
+        SceneManager.LoadScene("GameOver");
     }
 
     public void addLive()
