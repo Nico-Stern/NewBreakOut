@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 public class N_BrickSpawner : MonoBehaviour
 {
@@ -11,7 +12,7 @@ public class N_BrickSpawner : MonoBehaviour
     [SerializeField] float BrickOffset;
     [SerializeField] GameObject BrickPrehab;
     Vector3 StartPosition;
-    [SerializeField] List<GameObject> AllBricks;
+    public List<GameObject> AllBricks;
     [SerializeField] List<GameObject> BricksWithOutPowerUp;
     [SerializeField] int PowerUp;
 
@@ -24,13 +25,45 @@ public class N_BrickSpawner : MonoBehaviour
         }
         StartPosition.x -= (BricksX / 2) * (BrickPrehab.transform.localScale.x + BrickOffset);
         this.transform.position = StartPosition;
-        SpawnBricks();
-        
+        SpawnBricks(BricksY.Length);
+        BricksY[0] = Brick.Normal;
     }
 
-    void SpawnBricks()
+    private void Update()
     {
-        for ( int j =0; j < BricksY.Length; j++)
+        if(Input.GetKeyDown(KeyCode.N))
+        {
+            SetAllBricksDown();
+            SpawnBricks(1);
+        }
+    }
+
+    void SetAllBricksDown()
+    {
+        for(int i = 0; i < AllBricks.Count; i++)
+        {
+            AllBricks[i].GetComponent<N_Brick>().Reihe++;
+            AllBricks[i].transform.position = new Vector3 (AllBricks[i].transform.position.x, AllBricks[i].transform.position.y- (BrickPrehab.transform.localScale.y + BrickOffset), 0);
+        }
+    }
+
+    public void CheckLastBricks()
+    {
+        print("check");
+       for(int i = 0;i < AllBricks.Count;i++)
+        {
+            if (AllBricks[i].GetComponent<N_Brick>().Reihe == BricksY.Length-1)
+            {
+                return;
+            }
+        }
+        SetAllBricksDown();
+       SpawnBricks (1);
+    }
+
+    void SpawnBricks(int a)
+    {
+        for ( int j =0; j < a; j++)
         {
             transform.position = new Vector3(StartPosition.x, StartPosition.y- (BrickPrehab.transform.localScale.y + BrickOffset)*j);
             for (int i = 0; i < BricksX; i++)
@@ -46,7 +79,7 @@ public class N_BrickSpawner : MonoBehaviour
                     BricksWithOutPowerUp.Add(togo);
                 }
                 transform.position += new Vector3(BrickPrehab.transform.localScale.x + BrickOffset, 0, 0);
-               
+                togo.GetComponent<N_Brick>().Reihe=j;
             }
             SetPowerUp();
             BricksWithOutPowerUp.Clear();
@@ -59,10 +92,15 @@ public class N_BrickSpawner : MonoBehaviour
         {
             for (int i = 0; PowerUp > i; i++)
             {
-                int rdm = Random.Range(0, BricksWithOutPowerUp.Count);
-                BricksWithOutPowerUp[rdm].GetComponent<N_Brick>().WhatBrick = Brick.PowerUp;
-                BricksWithOutPowerUp[rdm].GetComponent<N_Brick>().ChangeColor();
-                BricksWithOutPowerUp.RemoveAt(rdm);
+                try
+                {
+                    int rdm = Random.Range(0, BricksWithOutPowerUp.Count);
+                    BricksWithOutPowerUp[rdm].GetComponent<N_Brick>().WhatBrick = Brick.PowerUp;
+                    BricksWithOutPowerUp[rdm].GetComponent<N_Brick>().ChangeColor();
+                    BricksWithOutPowerUp.RemoveAt(rdm);
+                }
+                catch { }
+
             }
         }
     }

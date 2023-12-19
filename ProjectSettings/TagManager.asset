@@ -6,11 +6,12 @@ TagManager:
   tags:
   - Ball
   - Brick
+  - PowerUp
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - BallLayer
   - Water
   - UI
   - 
