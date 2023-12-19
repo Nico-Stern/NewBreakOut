@@ -15,7 +15,7 @@ public class P_Ball : MonoBehaviour
     [SerializeField] private float maxVelocity = 15f;
     private Rigidbody2D rb;
     private int score;
-    [SerializeField] private int lives = 3;
+    private int lives = 3;
     public Text scoreTxt;
     public GameObject[] livesImage;
     [SerializeField] private GameObject ballPhantom;
@@ -119,11 +119,8 @@ public class P_Ball : MonoBehaviour
     public void lava()
     {
         Debug.Log("lava");
-        
-        /*
 
         StartCoroutine(LavaTimer());
-        */
     }
 
     public void MoreLives()
