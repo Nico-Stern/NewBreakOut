@@ -53,7 +53,7 @@ public class P_BallPhantom : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Brick"))
         { 
-            Debug.Log("Hit");
+            // Debug.Log("Hit");
             // if (other.gameObject.GetComponent<N_Brick>().life <= 1)
             // {
             //     Destroy(other.gameObject);
