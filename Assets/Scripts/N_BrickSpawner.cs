@@ -18,7 +18,7 @@ public class N_BrickSpawner : MonoBehaviour
 
     void Start()
     {
-        StartPosition = new Vector3(0, 4.5f+BrickOffset, 0);
+        StartPosition = new Vector3(0, 4.5f+BrickOffset/4, 0);
         if (BricksX%2==0)
         {
             StartPosition.x += ((BrickPrehab.transform.localScale.x + BrickOffset) / 2);
@@ -43,7 +43,7 @@ public class N_BrickSpawner : MonoBehaviour
         for(int i = 0; i < AllBricks.Count; i++)
         {
             AllBricks[i].GetComponent<N_Brick>().Reihe++;
-            AllBricks[i].transform.position = new Vector3 (AllBricks[i].transform.position.x, AllBricks[i].transform.position.y- (BrickPrehab.transform.localScale.y + BrickOffset), 0);
+            AllBricks[i].transform.position = new Vector3 (AllBricks[i].transform.position.x, AllBricks[i].transform.position.y- (BrickPrehab.transform.localScale.y ), 0);
         }
     }
 
@@ -65,7 +65,7 @@ public class N_BrickSpawner : MonoBehaviour
     {
         for ( int j =0; j < a; j++)
         {
-            transform.position = new Vector3(StartPosition.x, StartPosition.y- (BrickPrehab.transform.localScale.y + BrickOffset)*j);
+            transform.position = new Vector3(StartPosition.x, StartPosition.y- (BrickPrehab.transform.localScale.y +(BrickOffset/4))*j);
             for (int i = 0; i < BricksX; i++)
             {
                 //AllBricks.Add(Instantiate(Brick, this.transform.position, this.transform.rotation));
