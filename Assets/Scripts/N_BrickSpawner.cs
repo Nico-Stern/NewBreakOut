@@ -18,7 +18,6 @@ public class N_BrickSpawner : MonoBehaviour
     void Start()
     {
         StartPosition = new Vector3(0, 4.5f+BrickOffset, 0);
-        print(BricksX % 2);
         if (BricksX%2==0)
         {
             StartPosition.x += ((BrickPrehab.transform.localScale.x + BrickOffset) / 2);
@@ -65,6 +64,15 @@ public class N_BrickSpawner : MonoBehaviour
                 BricksWithOutPowerUp[rdm].GetComponent<N_Brick>().ChangeColor();
                 BricksWithOutPowerUp.RemoveAt(rdm);
             }
+        }
+    }
+
+    //Setzt all in Trigger bei "true" bei "false" zu Normalen Collidern
+    public void SetAllBricksTrigger(bool a)
+    {
+        for(int i = 0; AllBricks.Count > i; i++)
+        {
+            AllBricks[i].GetComponent<N_Brick>().SetBrickIntoTrigger(a);
         }
     }
 }
