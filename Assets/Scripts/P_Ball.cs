@@ -82,7 +82,7 @@ public class P_Ball : MonoBehaviour
             }
             else
             {
-                col.gameObject.GetComponent<N_Brick>().life--;
+                col.gameObject.GetComponent<N_Brick>().MinusLife();
             }
         }
     }
@@ -136,10 +136,10 @@ public class P_Ball : MonoBehaviour
 
     IEnumerator LavaTimer()
     {
-        spawner.SetAllBricksTrigger(true);
-        rb.velocity = rb.velocity / 2;
-        yield return new WaitForSeconds(5);
-        spawner.SetAllBricksTrigger(false);
-        rb.velocity = rb.velocity * 2;
+        // spawner.SetAllBricksTrigger(true);
+        // rb.velocity = rb.velocity / 2;
+        // yield return new WaitForSeconds(5);
+        // spawner.SetAllBricksTrigger(false);
+        // rb.velocity = rb.velocity * 2;
     }
 }
