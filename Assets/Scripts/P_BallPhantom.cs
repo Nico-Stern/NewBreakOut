@@ -1,12 +1,15 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public class P_BallPhantom : MonoBehaviour
 {
     [SerializeField] private float minY = -5.5f;
     [SerializeField] private float trueMinY = -10.5f;
     [SerializeField] private float maxVelocity = 15f;
+    [SerializeField] private P_Ball ball;
     private Rigidbody2D rb;
     
     void Start()
@@ -44,6 +47,22 @@ public class P_BallPhantom : MonoBehaviour
         }
 
         StartCoroutine(Die());
+    }
+
+    private void OnCollisionEnter2D(Collision2D other)
+    {
+        if (other.gameObject.CompareTag("Brick"))
+        {
+            if (other.gameObject.GetComponent<N_Brick>().life <= 1)
+            {
+                Destroy(other.gameObject);
+                ball.CountScore();
+            }
+            else
+            {
+                other.gameObject.GetComponent<N_Brick>().life--;
+            }
+        }
     }
 
     IEnumerator Die()

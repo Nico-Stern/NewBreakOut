@@ -77,7 +77,6 @@ public class P_Ball : MonoBehaviour
             {
                 Destroy(col.gameObject);
                 CountScore();
-                scoreTxt.text = score.ToString("00000");
             }
             else
             {
@@ -129,5 +128,6 @@ public class P_Ball : MonoBehaviour
     public void CountScore()
     {
         score += 10;
+        scoreTxt.text = score.ToString("00000");
     }
 }
