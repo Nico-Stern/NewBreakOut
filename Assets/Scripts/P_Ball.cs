@@ -7,6 +7,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.TextCore;
 using UnityEngine.UI;
+using UnityEngine.UIElements;
 
 public class P_Ball : MonoBehaviour
 {
@@ -20,6 +21,7 @@ public class P_Ball : MonoBehaviour
     [SerializeField] private GameObject ballPhantom;
     private Vector3 BallReset;
     private bool ballIsActive;
+    private N_BrickSpawner spawner;
 
     private void Start()
     {
@@ -117,7 +119,8 @@ public class P_Ball : MonoBehaviour
     public void lava()
     {
         Debug.Log("lava");
-        
+
+        StartCoroutine(LavaTimer());
     }
 
     public void MoreLives()
@@ -129,5 +132,14 @@ public class P_Ball : MonoBehaviour
     {
         score += 10;
         scoreTxt.text = score.ToString("00000");
+    }
+
+    IEnumerator LavaTimer()
+    {
+        spawner.SetAllBricksTrigger(true);
+        rb.velocity = rb.velocity / 2;
+        yield return new WaitForSeconds(5);
+        spawner.SetAllBricksTrigger(false);
+        rb.velocity = rb.velocity * 2;
     }
 }

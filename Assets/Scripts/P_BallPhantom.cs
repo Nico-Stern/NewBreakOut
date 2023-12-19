@@ -52,16 +52,17 @@ public class P_BallPhantom : MonoBehaviour
     private void OnCollisionEnter2D(Collision2D other)
     {
         if (other.gameObject.CompareTag("Brick"))
-        {
-            if (other.gameObject.GetComponent<N_Brick>().life <= 1)
-            {
-                Destroy(other.gameObject);
-                ball.CountScore();
-            }
-            else
-            {
-                other.gameObject.GetComponent<N_Brick>().life--;
-            }
+        { 
+            Debug.Log("Hit");
+            // if (other.gameObject.GetComponent<N_Brick>().life <= 1)
+            // {
+            //     Destroy(other.gameObject);
+            //     ball.CountScore();
+            // }
+            // else
+            // {
+            //     other.gameObject.GetComponent<N_Brick>().life--;
+            // }
         }
     }
 
