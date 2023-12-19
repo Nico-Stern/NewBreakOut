@@ -76,7 +76,7 @@ public class P_Ball : MonoBehaviour
             if (col.gameObject.GetComponent<N_Brick>().life <= 1)
             {
                 Destroy(col.gameObject);
-                score += 10;
+                CountScore();
                 scoreTxt.text = score.ToString("00000");
             }
             else
@@ -124,5 +124,10 @@ public class P_Ball : MonoBehaviour
     public void MoreLives()
     {
         lives++;
+    }
+
+    public void CountScore()
+    {
+        score += 10;
     }
 }
