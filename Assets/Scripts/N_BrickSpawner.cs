@@ -43,22 +43,22 @@ public class N_BrickSpawner : MonoBehaviour
         for(int i = 0; i < AllBricks.Count; i++)
         {
             AllBricks[i].GetComponent<N_Brick>().Reihe++;
-            AllBricks[i].transform.position = new Vector3 (AllBricks[i].transform.position.x, AllBricks[i].transform.position.y- (BrickPrehab.transform.localScale.y ), 0);
+            AllBricks[i].transform.position = new Vector3 (AllBricks[i].transform.position.x, AllBricks[i].transform.position.y- (BrickPrehab.transform.localScale.y +BrickOffset/4), 0);
         }
     }
 
     public void CheckLastBricks()
     {
         print("check");
-       for(int i = 0;i < AllBricks.Count;i++)
+        for (int i = 0; i < AllBricks.Count; i++)
         {
-            if (AllBricks[i].GetComponent<N_Brick>().Reihe == BricksY.Length-1)
+            if (AllBricks[i].GetComponent<N_Brick>().Reihe == BricksY.Length - 1)
             {
                 return;
             }
         }
         SetAllBricksDown();
-       SpawnBricks (1);
+        SpawnBricks (1);
     }
 
     void SpawnBricks(int a)
