@@ -17,11 +17,14 @@ public class P_Ball : MonoBehaviour
     public Text scoreTxt;
     public GameObject[] livesImage;
     [SerializeField] private GameObject ballPhantom;
+    private Vector3 BallReset;
 
     private void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         rb.velocity = Vector2.down * 10f;
+        BallReset = new Vector3(0.0f, -1f, 0.0f);
+        GetComponent<P_Player>();
     }
 
     private void Update()
@@ -34,7 +37,7 @@ public class P_Ball : MonoBehaviour
             }
             else
             {
-                transform.position = Vector3.zero;
+                transform.position = BallReset;
                 rb.velocity = Vector2.down * 10f;
                 //rb.velocity = Vector2.zero;
                 lives--;
