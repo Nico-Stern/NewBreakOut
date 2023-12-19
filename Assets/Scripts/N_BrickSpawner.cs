@@ -26,7 +26,7 @@ public class N_BrickSpawner : MonoBehaviour
         StartPosition.x -= (BricksX / 2) * (BrickPrehab.transform.localScale.x + BrickOffset);
         this.transform.position = StartPosition;
         SpawnBricks();
-        SetPowerUp();
+        
     }
 
     void SpawnBricks()
@@ -47,18 +47,21 @@ public class N_BrickSpawner : MonoBehaviour
                     BricksWithOutPowerUp.Add(togo);
                 }
                 transform.position += new Vector3(BrickPrehab.transform.localScale.x + BrickOffset, 0, 0);
+               
             }
-        }   
+            SetPowerUp();
+            BricksWithOutPowerUp.Clear();
+        }
     }
 
     void SetPowerUp()
     {
-        for(int i=0; PowerUp > i; i++)
+        if (BricksWithOutPowerUp.Count > 0)
         {
-            if(PowerUp >0)
+            for (int i = 0; PowerUp > i; i++)
             {
-                int rdm= Random.Range(0, BricksWithOutPowerUp.Count);
-                BricksWithOutPowerUp[rdm].GetComponent<N_Brick>().WhatBrick=Brick.PowerUp;
+                int rdm = Random.Range(0, BricksWithOutPowerUp.Count);
+                BricksWithOutPowerUp[rdm].GetComponent<N_Brick>().WhatBrick = Brick.PowerUp;
                 BricksWithOutPowerUp[rdm].GetComponent<N_Brick>().ChangeColor();
                 BricksWithOutPowerUp.RemoveAt(rdm);
             }
