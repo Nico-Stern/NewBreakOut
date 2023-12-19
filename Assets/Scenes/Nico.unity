@@ -443,6 +443,10 @@ PrefabInstance:
       value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 2708012668196920760, guid: b1bae93ab5b95a444bc78a4f9f2a5d62, type: 3}
+      propertyPath: BrickOffset
+      value: 1.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2708012668196920760, guid: b1bae93ab5b95a444bc78a4f9f2a5d62, type: 3}
       propertyPath: BricksY.Array.size
       value: 7
       objectReference: {fileID: 0}

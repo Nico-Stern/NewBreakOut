@@ -57,12 +57,20 @@ public class N_Brick : MonoBehaviour
         }
     }
 
-    private void OnDestroy()
+    private void OnCollisionEnter2D(Collision2D collision)
     {
         GameObject Spawner = GameObject.FindGameObjectWithTag("Spawner");
         print(Spawner);
-        int count=Spawner.GetComponent<N_BrickSpawner>().AllBricks.Count;
-        for(int i=0; i<count; i++)
+        int count = 0;
+        try
+        {
+            count = Spawner.GetComponent<N_BrickSpawner>().AllBricks.Count;
+        }
+        catch
+        {
+
+        }
+        for (int i = 0; i < count; i++)
         {
             if (Spawner.GetComponent<N_BrickSpawner>().AllBricks[i] == this.gameObject)
             {
@@ -71,8 +79,15 @@ public class N_Brick : MonoBehaviour
             }
         }
         print("try");
-        Spawner.GetComponent<N_BrickSpawner>().CheckLastBricks();
-        if(WhatBrick==Brick.PowerUp)
+        try
+        {
+            Spawner.GetComponent<N_BrickSpawner>().CheckLastBricks();
+        }
+        catch
+        {
+
+        }
+        if (WhatBrick == Brick.PowerUp)
         {
             Instantiate(PowerUp, transform.position, Quaternion.identity);
         }
