@@ -18,37 +18,47 @@ public class P_Ball : MonoBehaviour
     public GameObject[] livesImage;
     [SerializeField] private GameObject ballPhantom;
     private Vector3 BallReset;
+    private bool ballIsActive;
 
     private void Start()
     {
         rb = GetComponent<Rigidbody2D>();
-        rb.velocity = Vector2.down * 10f;
+        //rb.velocity = Vector2.down * 10f;
         BallReset = new Vector3(0.0f, -1f, 0.0f);
-        GetComponent<P_Player>();
+        ballIsActive = false;
     }
 
     private void Update()
     {
-        if (transform.position.y < minY)
+        if (ballIsActive == true)
         {
-            if (lives <= 0)
+            if (transform.position.y < minY)
             {
-                GameOver();
-            }
-            else
-            {
-                transform.position = BallReset;
-                rb.velocity = Vector2.down * 10f;
-                //rb.velocity = Vector2.zero;
-                lives--;
-                livesImage[lives].SetActive(false);
-            }
+                if (lives <= 0)
+                {
+                    GameOver();
+                }
+                else
+                {
+                    transform.position = BallReset;
+                    rb.velocity = Vector2.down * 10f;
+                    lives--;
+                    livesImage[lives].SetActive(false);
+                }
             
-        }
+            }
 
-        if (rb.velocity.magnitude > maxVelocity)
+            if (rb.velocity.magnitude > maxVelocity)
+            {
+                rb.velocity = Vector3.ClampMagnitude(rb.velocity, maxVelocity);
+            }
+        }
+        
+
+        if (Input.GetButtonDown("Jump"))
         {
-            rb.velocity = Vector3.ClampMagnitude(rb.velocity, maxVelocity);
+            ballIsActive = true;
+            rb.velocity = Vector2.down * 10f;
         }
     }
 
