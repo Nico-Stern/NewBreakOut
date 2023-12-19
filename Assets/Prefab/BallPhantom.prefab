@@ -102,6 +102,7 @@ MonoBehaviour:
   minY: -5.5
   trueMinY: -10.5
   maxVelocity: 15
+  ball: {fileID: 2664718802024911848, guid: 8f3358b9ca82ce74783da40fd0648732, type: 3}
 --- !u!58 &2857493296322635829
 CircleCollider2D:
   m_ObjectHideFlags: 0
