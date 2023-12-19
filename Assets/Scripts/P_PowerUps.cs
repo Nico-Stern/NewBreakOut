@@ -27,20 +27,20 @@ public class P_PowerUps : MonoBehaviour
         //         break;
         // }
 
-        // if (rdm / 100 > 0.15f)
-        // {
-        //     powerUp = PowerUp.lava;
-        // }
-        //
-        // if (rdm/ 100 > 0.5f)
-        // {
-        //     powerUp = PowerUp.split;
-        // }
-        //
-        // if (rdm / 100 > 0.35f && < )
-        // {
-        //     powerUp = PowerUp.plus1Live;
-        // }
+        if (percentage > 0.15f)
+        {
+            powerUp = PowerUp.lava;
+        }
+        
+        if (percentage < 0.5f)
+        {
+            powerUp = PowerUp.split;
+        }
+        
+        if (percentage > 0.35f && percentage < 0.15f)
+        {
+            powerUp = PowerUp.plus1Live;
+        }
         
     }
 

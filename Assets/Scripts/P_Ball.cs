@@ -40,8 +40,10 @@ public class P_Ball : MonoBehaviour
                 }
                 else
                 {
+                    ballIsActive = false;
                     transform.position = BallReset;
-                    rb.velocity = Vector2.down * 10f;
+                    rb.velocity = Vector2.zero;
+                    //rb.velocity = Vector2.down * 10f;
                     lives--;
                     livesImage[lives].SetActive(false);
                 }
