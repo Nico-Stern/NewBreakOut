@@ -34,6 +34,7 @@ public class P_Ball : MonoBehaviour
 
     private void Update()
     {
+        Debug.Log(lives);
         if (ballIsActive == true)
         {
             if (transform.position.y < minY)
@@ -48,7 +49,7 @@ public class P_Ball : MonoBehaviour
                     transform.position = BallReset;
                     rb.velocity = Vector2.zero;
                     //rb.velocity = Vector2.down * 10f;
-                    lives--;
+                    LessLives();
                     livesImage[lives].SetActive(false);
                 }
             
@@ -106,7 +107,7 @@ public class P_Ball : MonoBehaviour
     {
         Debug.Log("addLive");
         MoreLives();
-        Debug.Log(lives);
+        //Debug.Log(lives);
         //livesImage[lives].SetActive(true);
     }
 
@@ -120,12 +121,17 @@ public class P_Ball : MonoBehaviour
     {
         Debug.Log("lava");
 
-        StartCoroutine(LavaTimer());
+        //StartCoroutine(LavaTimer());
     }
 
     public void MoreLives()
     {
         lives++;
+    }
+
+    void LessLives()
+    {
+        lives--;
     }
 
     public void CountScore()
@@ -136,10 +142,10 @@ public class P_Ball : MonoBehaviour
 
     IEnumerator LavaTimer()
     {
-        // spawner.SetAllBricksTrigger(true);
-        // rb.velocity = rb.velocity / 2;
-        // yield return new WaitForSeconds(5);
-        // spawner.SetAllBricksTrigger(false);
-        // rb.velocity = rb.velocity * 2;
+        spawner.SetAllBricksTrigger(true);
+        rb.velocity = rb.velocity / 2;
+        yield return new WaitForSeconds(5);
+        spawner.SetAllBricksTrigger(false);
+        rb.velocity = rb.velocity * 2;
     }
 }
