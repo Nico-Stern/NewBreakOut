@@ -32,9 +32,9 @@ public class N_Brick : MonoBehaviour
         }
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
+    public void SetBrickIntoTrigger(bool a)
     {
-        Destroy(gameObject);
+        gameObject.GetComponent<BoxCollider2D>().isTrigger = a;
     }
 }
 public enum Brick
