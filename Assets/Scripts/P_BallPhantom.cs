@@ -8,7 +8,7 @@ public class P_BallPhantom : MonoBehaviour
     [SerializeField] private float trueMinY = -10.5f;
     [SerializeField] private float maxVelocity = 15f;
     private Rigidbody2D rb;
-    // Start is called before the first frame update
+    
     void Start()
     {
         int rdm = Random.Range(1, 2);
@@ -26,7 +26,6 @@ public class P_BallPhantom : MonoBehaviour
         }
     }
 
-    // Update is called once per frame
     void Update()
     {
         if (transform.position.y < minY)
@@ -43,5 +42,13 @@ public class P_BallPhantom : MonoBehaviour
         {
             rb.velocity = Vector3.ClampMagnitude(rb.velocity, maxVelocity);
         }
+
+        StartCoroutine(Die());
+    }
+
+    IEnumerator Die()
+    {
+        yield return new WaitForSeconds(15);
+        Destroy(gameObject);
     }
 }
