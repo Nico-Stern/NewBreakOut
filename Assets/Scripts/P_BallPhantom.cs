@@ -16,7 +16,7 @@ public class P_BallPhantom : MonoBehaviour
     {
         int rdm = Random.Range(1, 2);
         rb = GetComponent<Rigidbody2D>();
-        rb.velocity = Vector2.down * 10f;
+        rb.velocity = Vector2.up * 10f;
         
         switch (rdm)
         {
