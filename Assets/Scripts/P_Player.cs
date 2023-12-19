@@ -5,9 +5,9 @@ using UnityEngine;
 
 public class P_Player : MonoBehaviour
 {
-    [SerializeField] private float playerVelocity = 5f;
+    [SerializeField] private float playerVelocity = 10f;
     private float playerMov;
-    private float boundary = 6.75f;
+    private float boundary = 7f;
     
     void Update()
     {
