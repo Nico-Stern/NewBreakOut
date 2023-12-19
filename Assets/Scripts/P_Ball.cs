@@ -57,8 +57,11 @@ public class P_Ball : MonoBehaviour
 
         if (Input.GetButtonDown("Jump"))
         {
+            if (ballIsActive == false)
+            {
+                rb.velocity = Vector2.down * 10f;
+            }
             ballIsActive = true;
-            rb.velocity = Vector2.down * 10f;
         }
     }
 
