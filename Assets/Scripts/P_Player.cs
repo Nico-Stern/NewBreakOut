@@ -7,7 +7,7 @@ public class P_Player : MonoBehaviour
 {
     [SerializeField] private float playerVelocity = 10f;
     private float playerMov;    
-    private float boundary = 7f;
+    private float boundary = 8f;
     
     void Update()
     {

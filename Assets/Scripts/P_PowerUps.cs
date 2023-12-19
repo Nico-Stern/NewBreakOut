@@ -11,20 +11,37 @@ public class P_PowerUps : MonoBehaviour
     
     void Start()
     {
-        int rdm = Random.Range(1,3);
+        int rdm = Random.Range(1,100);
+        int percentage = rdm / 100;
 
-        switch (rdm)
-        {
-            case 1:
-                powerUp = PowerUp.lava;
-                break;
-            case 2:
-                powerUp = PowerUp.split;
-                break;
-            case 3:
-                powerUp = PowerUp.plus1Live;
-                break;
-        }
+        // switch (rdm)
+        // {
+        //     case 1:
+        //         powerUp = PowerUp.lava;
+        //         break;
+        //     case 2:
+        //         powerUp = PowerUp.split;
+        //         break;
+        //     case 3:
+        //         powerUp = PowerUp.plus1Live;
+        //         break;
+        // }
+
+        // if (rdm / 100 > 0.15f)
+        // {
+        //     powerUp = PowerUp.lava;
+        // }
+        //
+        // if (rdm/ 100 > 0.5f)
+        // {
+        //     powerUp = PowerUp.split;
+        // }
+        //
+        // if (rdm / 100 > 0.35f && < )
+        // {
+        //     powerUp = PowerUp.plus1Live;
+        // }
+        
     }
 
     public void UsePowerUp()
@@ -48,5 +65,5 @@ public enum PowerUp
 {
     lava,
     split,
-    plus1Live,
+    plus1Live
 }
