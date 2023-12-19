@@ -108,5 +108,6 @@ public class P_Ball : MonoBehaviour
     public void lava()
     {
         Debug.Log("lava");
+        
     }
 }
