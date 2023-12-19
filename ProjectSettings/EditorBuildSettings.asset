@@ -12,6 +12,6 @@ EditorBuildSettings:
     path: Assets/Scenes/Level1.unity
     guid: 2cda990e2423bbf4892e6590ba056729
   - enabled: 1
-    path: Assets/Scenes/Babacar.unity
-    guid: db2ef79b64614fd4ab21f8777551a08e
+    path: Assets/Scenes/GameOver.unity
+    guid: 05f6685579dbc1f44869f11017bc9312
   m_configObjects: {}
