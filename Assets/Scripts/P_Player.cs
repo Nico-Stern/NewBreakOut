@@ -5,33 +5,16 @@ using UnityEngine;
 
 public class P_Player : MonoBehaviour
 {
-    [SerializeField] private float playerVelocity = 1f;
-    private Vector3 playerPosition;
+    [SerializeField] private float playerVelocity = 5f;
+    private float playerMov;
     private float boundary = 6.75f;
-    void Start()
-    {
-        playerPosition = transform.position;
-    }
-
     
-    void FixedUpdate()
+    void Update()
     {
-        playerPosition.x += Input.GetAxis("Horizontal") * playerVelocity;
-        transform.position = playerPosition;
-        
-    }
-
-    private void Update()
-    {
-        if (playerPosition.x < -boundary)
+        playerMov = Input.GetAxis("Horizontal");
+        if ((playerMov > 0 && transform.position.x < boundary) || (playerMov < 0 && transform.position.x > -boundary))
         {
-            transform.position = new Vector3(-boundary, playerPosition.y, playerPosition.z);
+            transform.position += Vector3.right * playerMov * playerVelocity * Time.deltaTime;
         }
-        if (playerPosition.x > boundary)
-        {
-            transform.position = new Vector3(boundary, playerPosition.y, playerPosition.z);
-        }
-        
-        
     }
 }

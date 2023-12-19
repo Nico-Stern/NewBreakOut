@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 8324097839342581441}
   - component: {fileID: 4733347199201219441}
   - component: {fileID: 6679448914342339660}
-  - component: {fileID: 4224297880089580979}
+  - component: {fileID: 2935541083629127032}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -29,7 +29,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -0, y: -4.02, z: 0}
-  m_LocalScale: {x: 5, y: 0.5, z: 1}
+  m_LocalScale: {x: 2.5, y: 0.5, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -98,9 +98,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fadacf1dd75265d4480ea5c6da4267c6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerVelocity: 0.4
---- !u!61 &4224297880089580979
-BoxCollider2D:
+  playerVelocity: 5
+--- !u!60 &2935541083629127032
+PolygonCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -141,6 +141,12 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1}
-  m_EdgeRadius: 0
+  m_Points:
+    m_Paths:
+    - - {x: -0.05, y: 0.5}
+      - {x: -0.5, y: 0}
+      - {x: -0.5, y: -0.5}
+      - {x: 0.5, y: -0.5}
+      - {x: 0.5, y: 0}
+      - {x: 0.05, y: 0.5}
+  m_UseDelaunayMesh: 0

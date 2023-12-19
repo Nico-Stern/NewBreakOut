@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
@@ -6,54 +7,53 @@ using UnityEngine.TextCore;
 
 public class P_Ball : MonoBehaviour
 {
-    [SerializeField] private GameObject player;
-    private int ballIsActive;
-    private Vector3 ballPosition;
-    private Vector2 ballPosV2;
-    private Vector2 ballInitalForce;
-    private Vector2 playerOffset;
-    private Vector2 playerSize;
-    private Vector2 distance;
-    private BoxCollider2D p_collider;
-    //private float OriginY;
+    [SerializeField] private float minY = -5.5f;
+    [SerializeField] private float maxVelocity = 15f;
     private Rigidbody2D rb;
-    
-    void Start()
+    private int score = 0;
+    private int lives = 5;
+
+    private void Start()
     {
-        p_collider = player.GetComponent<BoxCollider2D>();
-        p_collider.offset = playerOffset;
-        p_collider.size = playerSize;
-        ballIsActive = 0;
-        ballPosition = transform.position;
-        //OriginY = transform.position.y;
-        playerSize = new Vector2(100f, 300f);
         rb = GetComponent<Rigidbody2D>();
-
+        rb.velocity = Vector2.down * 10f;
     }
 
-    // Update is called once per frame
-    void FixedUpdate()
+    private void Update()
     {
-        if (Input.GetButtonDown("Jump"))
+        if (transform.position.y < minY)
         {
-            if (ballIsActive == 0)
+            if (lives <= 0)
             {
-                rb.AddForce(ballInitalForce);
-                ballIsActive = 1;
+                GameOver();
             }
+            else
+            {
+                transform.position = Vector3.zero;
+                rb.velocity = Vector2.down * 10f;
+                //rb.velocity = Vector2.zero;
+                lives--;
+            }
+            
         }
 
-        if (ballIsActive == 0 && player != null)
+        if (rb.velocity.magnitude > maxVelocity)
         {
-            ballPosition.x = player.transform.position.x;
-            transform.position = ballPosition;
-            ballPosV2 = new Vector2(transform.position.x, transform.position.y);
+            rb.velocity = Vector3.ClampMagnitude(rb.velocity, maxVelocity);
         }
     }
 
-    void HitPlayer()
+    private void OnCollisionEnter2D(Collision2D col)
     {
-        //Vector2.Distance(ballPosV2, playerOffset) = distance;
+        if (col.gameObject.CompareTag("Brick"))
+        {
+            Destroy(col.gameObject);
+            score += 10;
+        }
     }
-    
+
+    void GameOver()
+    {
+        Time.timeScale = 0;
+    }
 }
