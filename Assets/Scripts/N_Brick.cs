@@ -74,7 +74,10 @@ public class N_Brick : MonoBehaviour
         {
             if (Spawner.GetComponent<N_BrickSpawner>().AllBricks[i] == this.gameObject)
             {
-                Spawner.GetComponent<N_BrickSpawner>().AllBricks.RemoveAt(i);
+                if (life <= 1)
+                {
+                    Spawner.GetComponent<N_BrickSpawner>().AllBricks.RemoveAt(i);
+                }
                 break;
             }
         }
@@ -91,11 +94,18 @@ public class N_Brick : MonoBehaviour
         {
             Instantiate(PowerUp, transform.position, Quaternion.identity);
         }
+
+        GetComponent<SpriteRenderer>().color -= new Color(0, 0, 0, 0.25f);
     }
 
     public void SetBrickIntoTrigger(bool a)
     {
         gameObject.GetComponent<BoxCollider2D>().isTrigger = a;
+    }
+
+    public void MinusLife()
+    {
+        life--;
     }
 }
 public enum Brick
