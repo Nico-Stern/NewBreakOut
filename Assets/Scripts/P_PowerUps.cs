@@ -15,19 +15,6 @@ public class P_PowerUps : MonoBehaviour
         float percentage = rdm / 100;
         Debug.Log(percentage);
 
-        // switch (rdm)
-        // {
-        //     case 1:
-        //         powerUp = PowerUp.lava;
-        //         break;
-        //     case 2:
-        //         powerUp = PowerUp.split;
-        //         break;
-        //     case 3:
-        //         powerUp = PowerUp.plus1Live;
-        //         break;
-        // }
-
         if (percentage <= 0.15f)
         {
             powerUp = PowerUp.lava;

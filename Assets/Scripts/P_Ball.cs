@@ -103,7 +103,7 @@ public class P_Ball : MonoBehaviour
         Debug.Log("addLive");
         MoreLives();
         Debug.Log(lives);
-        livesImage[lives].SetActive(true);
+        //livesImage[lives].SetActive(true);
     }
 
     public void split()
