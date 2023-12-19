@@ -3,14 +3,14 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class B_Menu : MonoBehaviour
+public class RestartGame : MonoBehaviour
 {
-    public void PlayGame()
+    public void Restart()
     {
         SceneManager.LoadScene("Level1");
     }
 
-    public void QuitGame()
+    public void Quit()
     {
         Application.Quit();
     }
