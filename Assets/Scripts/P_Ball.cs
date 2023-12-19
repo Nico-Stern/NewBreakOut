@@ -94,7 +94,7 @@ public class P_Ball : MonoBehaviour
     public void addLive()
     {
         Debug.Log("addLive");
-        lives++;
+        MoreLives();
         Debug.Log(lives);
         livesImage[lives].SetActive(true);
     }
@@ -109,5 +109,10 @@ public class P_Ball : MonoBehaviour
     {
         Debug.Log("lava");
         
+    }
+
+    public void MoreLives()
+    {
+        lives++;
     }
 }

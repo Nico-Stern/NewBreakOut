@@ -11,8 +11,9 @@ public class P_PowerUps : MonoBehaviour
     
     void Start()
     {
-        int rdm = Random.Range(1,100);
-        int percentage = rdm / 100;
+        float rdm = Random.Range(1,100);
+        float percentage = rdm / 100;
+        Debug.Log(percentage);
 
         // switch (rdm)
         // {
