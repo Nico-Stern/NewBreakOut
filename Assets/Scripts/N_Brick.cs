@@ -9,6 +9,7 @@ public class N_Brick : MonoBehaviour
 {
     public Brick WhatBrick;
     [SerializeField] Color[] BrickColor;
+    public int Reihe;
     void Start()
     {
         
@@ -62,9 +63,11 @@ public class N_Brick : MonoBehaviour
             if (Spawner.GetComponent<N_BrickSpawner>().AllBricks[i] == this.gameObject)
             {
                 Spawner.GetComponent<N_BrickSpawner>().AllBricks.RemoveAt(i);
-                return;
+                break;
             }
         }
+        print("try");
+        Spawner.GetComponent<N_BrickSpawner>().CheckLastBricks();
     }
 
     public void SetBrickIntoTrigger(bool a)
