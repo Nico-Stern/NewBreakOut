@@ -165,4 +165,4 @@ MonoBehaviour:
   maxVelocity: 15
   scoreTxt: {fileID: 0}
   livesImage: []
-  ballPhantom: {fileID: 0}
+  ballPhantom: {fileID: 3460337569336476546, guid: b1305c922e466d1489ddf5c8269ad4cb, type: 3}
