@@ -9,12 +9,6 @@ public class P_LiveManager : MonoBehaviour
     void Start()
     {
         lives = 3;
-        currenLives = lives;
     }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    
 }

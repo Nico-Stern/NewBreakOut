@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.TextCore;
+using UnityEngine.UI;
 
 public class P_Ball : MonoBehaviour
 {
@@ -11,7 +12,9 @@ public class P_Ball : MonoBehaviour
     [SerializeField] private float maxVelocity = 15f;
     private Rigidbody2D rb;
     private int score = 0;
-    private int lives = 5;
+    private int lives = 3;
+    public Text scoreTxt;
+    public GameObject[] livesImage;
 
     private void Start()
     {
@@ -33,6 +36,7 @@ public class P_Ball : MonoBehaviour
                 rb.velocity = Vector2.down * 10f;
                 //rb.velocity = Vector2.zero;
                 lives--;
+                livesImage[lives].SetActive(false);
             }
             
         }
@@ -49,6 +53,7 @@ public class P_Ball : MonoBehaviour
         {
             Destroy(col.gameObject);
             score += 10;
+            scoreTxt.text = score.ToString("00000");
         }
     }
 
